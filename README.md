@@ -19,31 +19,27 @@
 
 ## Quick Start
 
-### Option 1: Skills / Plugin (Recommended)
+### Option 1: Skills + Recipe Server (Recommended)
 
-Install ShipSwift Skills so your AI assistant can access all components and recipes instantly:
+**Step 1** — Install ShipSwift Skills:
 
-**Universal (works with any AI tool)**
 ```bash
 npx skills add signerlabs/shipswift-skills
 ```
 
-**Claude Code**
+**Step 2** — Connect the recipe server so your AI can fetch recipes:
+
 ```bash
-/plugin marketplace add signerlabs/shipswift-skills
-/plugin install shipswift
+# Claude Code
+claude mcp add --transport http shipswift https://api.shipswift.app/mcp
+
+# Gemini CLI
+gemini mcp add --transport http shipswift https://api.shipswift.app/mcp
 ```
 
-**Platform-Specific**
+For Cursor, VS Code Copilot, Windsurf, and other tools, see the [Skills repo](https://github.com/signerlabs/shipswift-skills) for MCP setup.
 
-| Platform | Install Command |
-|----------|----------------|
-| **Cursor** | `npx skills add signerlabs/shipswift-skills -a cursor` |
-| **VS Code Copilot** | `npx skills add signerlabs/shipswift-skills -a github-copilot` |
-| **Windsurf** | `npx skills add signerlabs/shipswift-skills -a windsurf` |
-| **Gemini CLI** | `gemini skills install https://github.com/signerlabs/shipswift-skills.git` |
-
-Then just ask your AI:
+**Step 3** — Ask your AI:
 - "Add a shimmer loading animation"
 - "Build an authentication flow with Cognito"
 - "Show me all chart components"
@@ -53,58 +49,6 @@ Then just ask your AI:
 1. Clone this repository
 2. Copy the files you need from `ShipSwift/SWPackage/` into your Xcode project
 3. Each component in `SWAnimation/`, `SWChart/`, and `SWComponent/` is self-contained — just copy the file and `SWUtil/` if needed
-
-<details>
-<summary><strong>Advanced: Manual MCP Setup</strong></summary>
-
-If you prefer configuring the MCP server directly instead of using Skills:
-
-**Claude Code**
-```bash
-claude mcp add --transport http shipswift https://api.shipswift.app/mcp
-```
-
-**Gemini CLI**
-```bash
-gemini mcp add --transport http shipswift https://api.shipswift.app/mcp
-```
-
-**Cursor** — Add to `.cursor/mcp.json`:
-```json
-{
-  "mcpServers": {
-    "shipswift": {
-      "type": "streamableHttp",
-      "url": "https://api.shipswift.app/mcp"
-    }
-  }
-}
-```
-
-**VS Code Copilot** — Add to `.vscode/mcp.json`:
-```json
-{
-  "servers": {
-    "shipswift": {
-      "type": "http",
-      "url": "https://api.shipswift.app/mcp"
-    }
-  }
-}
-```
-
-**Windsurf** — Add to `~/.codeium/windsurf/mcp_config.json`:
-```json
-{
-  "mcpServers": {
-    "shipswift": {
-      "serverUrl": "https://api.shipswift.app/mcp"
-    }
-  }
-}
-```
-
-</details>
 
 ### Run the Showcase App
 
