@@ -137,16 +137,16 @@ SWModule      ← may depend on SWUtil and SWComponent
 
 ## Recipes
 
-ShipSwift provides **40 recipes** (38 free + 2 pro) via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
+ShipSwift provides **41 recipes** (38 free + 3 pro) via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
 
 | Category | Count | Examples |
 |----------|-------|----------|
 | Animation | 9 | Shimmer, Typewriter, Orbiting Logos |
 | Chart | 8 | Line, Bar, Donut, Radar, Heatmap |
 | Component | 15 | Alert, Onboarding, Stepper, FAQ |
-| Module | 8 | Auth, Camera, Chat, Setting, Infra CDK, Subscription\*, TikTok Tracking\* |
+| Module | 9 | Auth, Camera, Chat, Setting, Infra CDK, Subscription\*, TikTok Tracking\*, Export & Share\* |
 
-\* Pro recipes — includes full backend, compliance templates, and pitfall guides.
+\* Pro recipes — includes full backend, compliance templates, and pitfall guides. *Coming soon: Push Notifications, Analytics Dashboard.*
 
 Three tools are available: `listRecipes`, `getRecipe`, `searchRecipes`.
 
@@ -165,6 +165,8 @@ All iOS client code is open-source under the MIT license. Pro recipes add everyt
 | Integration guides | — | End-to-end setup checklists |
 | Compliance templates | — | Privacy manifest, App Store labels |
 | Known pitfalls | — | 10+ battle-tested tips per recipe |
+
+More Pro recipes coming soon: **Push Notifications**, **Analytics Dashboard**.
 
 See [pricing](https://shipswift.app/#pricing) for details.
 
