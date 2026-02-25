@@ -159,45 +159,46 @@ struct ComponentRegistry {
             presentation: .fullScreenCover
         )
 
-        reg["paywall"] = ComponentEntry(
-            title: "Paywall",
-            icon: "creditcard.fill",
-            description: "Subscription paywall with monthly/yearly options and feature list",
-            preview: {
-                AnyView(
-                    VStack(spacing: 8) {
-                        Image(.shipSwiftLogo)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                        Text("ShipSwift Pro")
-                            .font(.headline)
-                        Text("$59.99/year")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        HStack(spacing: 6) {
-                            Image(systemName: "checkmark.seal.fill")
-                                .foregroundStyle(.accent)
-                                .imageScale(.small)
-                            Text("Full-stack iOS + AWS backend")
-                                .font(.caption)
-                        }
-                        HStack(spacing: 6) {
-                            Image(systemName: "terminal.fill")
-                                .foregroundStyle(.accent)
-                                .imageScale(.small)
-                            Text("One MCP command, instant access")
-                                .font(.caption)
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                )
-            },
-            fullView: { AnyView(ComponentDemoViews.paywallDemo()) },
-            presentation: .sheet
-        )
+        // Paywall registration — hidden for App Store review (may cause confusion)
+//        reg["paywall"] = ComponentEntry(
+//            title: "Paywall",
+//            icon: "creditcard.fill",
+//            description: "Subscription paywall with monthly/yearly options and feature list",
+//            preview: {
+//                AnyView(
+//                    VStack(spacing: 8) {
+//                        Image(.shipSwiftLogo)
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 40, height: 40)
+//                            .clipShape(RoundedRectangle(cornerRadius: 8))
+//                        Text("ShipSwift Pro")
+//                            .font(.headline)
+//                        Text("$59.99/year")
+//                            .font(.subheadline)
+//                            .foregroundStyle(.secondary)
+//                        HStack(spacing: 6) {
+//                            Image(systemName: "checkmark.seal.fill")
+//                                .foregroundStyle(.accent)
+//                                .imageScale(.small)
+//                            Text("Full-stack iOS + AWS backend")
+//                                .font(.caption)
+//                        }
+//                        HStack(spacing: 6) {
+//                            Image(systemName: "terminal.fill")
+//                                .foregroundStyle(.accent)
+//                                .imageScale(.small)
+//                            Text("One MCP command, instant access")
+//                                .font(.caption)
+//                        }
+//                    }
+//                    .padding()
+//                    .frame(maxWidth: .infinity)
+//                )
+//            },
+//            fullView: { AnyView(ComponentDemoViews.paywallDemo()) },
+//            presentation: .sheet
+//        )
 
         reg["chat"] = ComponentEntry(
             title: "Chat",
@@ -1131,10 +1132,10 @@ enum ComponentDemoViews {
         SWFaceCameraView()
     }
 
-    @ViewBuilder
-    static func paywallDemo() -> some View {
-        ComponentViewPaywallDemo()
-    }
+//    @ViewBuilder
+//    static func paywallDemo() -> some View {
+//        ComponentViewPaywallDemo()
+//    }
 
     @ViewBuilder
     static func chatDemo() -> some View {
