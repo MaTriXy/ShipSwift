@@ -5,8 +5,8 @@
 
 ## Directory Structure
 - Reusable components live under `ShipSwift/SWPackage/` in five directories:
-  - `SWAnimation/` — Self-contained animation components (9 files, each works independently, may depend on SWUtil only)
-  - `SWChart/` — Self-contained chart components (8 files, each works independently, may depend on SWUtil only)
+  - `SWAnimation/` — Self-contained animation components (each works independently, may depend on SWUtil only)
+  - `SWChart/` — Self-contained chart components (each works independently, may depend on SWUtil only)
   - `SWComponent/` — Self-contained UI components organized by category:
     - `Display/` — Display components (FloatingLabels, ScrollingFAQ, RotatingQuote, BulletPointText, GradientDivider, Label, OnboardingView, OrderView, RootTabView)
     - `Feedback/` — Feedback components (Alert, Loading, ThinkingIndicator)

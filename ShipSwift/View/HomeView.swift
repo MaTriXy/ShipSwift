@@ -163,7 +163,7 @@ struct HomeView: View {
                 icon: "puzzlepiece.extension.fill",
                 color: .blue,
                 title: "Module",
-                count: "6 Frameworks",
+                subtitle: "Frameworks",
                 description: "Auth, Camera, Face Camera, Paywall, Chat, Settings"
             ) { selectedTab = "component"; scrollTarget = "module" }
 
@@ -171,7 +171,7 @@ struct HomeView: View {
                 icon: "sparkles.tv.fill",
                 color: .orange,
                 title: "Animation",
-                count: "9 Components",
+                subtitle: "Components",
                 description: "Shimmer, TypewriterText, OrbitingLogos, and more"
             ) { selectedTab = "component"; scrollTarget = "animation" }
 
@@ -179,7 +179,7 @@ struct HomeView: View {
                 icon: "chart.bar.fill",
                 color: .green,
                 title: "Chart",
-                count: "8 Components",
+                subtitle: "Components",
                 description: "Line, Bar, Area, Donut, Radar, Scatter, and more"
             ) { selectedTab = "component"; scrollTarget = "chart" }
 
@@ -187,7 +187,7 @@ struct HomeView: View {
                 icon: "square.grid.2x2.fill",
                 color: .purple,
                 title: "Component",
-                count: "13 Components",
+                subtitle: "Components",
                 description: "Display, Feedback, Input — ready to use"
             ) { selectedTab = "component"; scrollTarget = "display" }
         }
@@ -211,7 +211,7 @@ private struct ModuleCard: View {
     let icon: String
     let color: Color
     let title: String
-    let count: String
+    let subtitle: String
     let description: String
     let onTap: () -> Void
 
@@ -228,7 +228,7 @@ private struct ModuleCard: View {
                     .font(.headline)
                     .foregroundStyle(.primary)
 
-                Text(count)
+                Text(subtitle)
                     .font(.caption)
                     .foregroundStyle(color)
 

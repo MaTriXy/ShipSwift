@@ -193,7 +193,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Module (7)")
+            Text("Module")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("module")
@@ -411,7 +411,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Animation (9)")
+            Text("Animation")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("animation")
@@ -794,7 +794,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Chart (8)")
+            Text("Chart")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("chart")
@@ -1024,7 +1024,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Display (7)")
+            Text("Display")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("display")
@@ -1202,7 +1202,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Feedback (3)")
+            Text("Feedback")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("feedback")
@@ -1312,7 +1312,7 @@ struct ComponentView: View {
                 )
             }
         } header: {
-            Text("Input (3)")
+            Text("Input")
                 .font(.title3.bold())
                 .textCase(nil)
                 .id("input")

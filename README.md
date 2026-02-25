@@ -64,21 +64,21 @@ Select a simulator or device, then press **Cmd+R** to build and run.
 
 ## Components
 
-### SWAnimation — 9 Animation Components
+### SWAnimation — Animation Components
 
 BeforeAfterSlider · TypewriterText · ShakingIcon · Shimmer · GlowSweep · LightSweep · ScanningOverlay · AnimatedMeshGradient · OrbitingLogos
 
-### SWChart — 8 Chart Components
+### SWChart — Chart Components
 
 LineChart · BarChart · AreaChart · DonutChart · RingChart · RadarChart · ScatterChart · ActivityHeatmap
 
-### SWComponent — 15 UI Components
+### SWComponent — UI Components
 
 **Display:** FloatingLabels · ScrollingFAQ · RotatingQuote · BulletPointText · GradientDivider · Label · OnboardingView · OrderView · RootTabView
 **Feedback:** Alert · Loading · ThinkingIndicator
 **Input:** TabButton · Stepper · AddSheet
 
-### SWModule — 6 Multi-File Frameworks
+### SWModule — Multi-File Frameworks
 
 - **SWAuth** — User authentication (Amplify/Cognito, social login, email/password, phone sign-in with country code picker)
 - **SWCamera** — Camera capture with viewfinder, zoom, photo picker, and face detection with Vision landmark tracking
@@ -98,20 +98,20 @@ DebugLog · String/Date/View extensions · LocationManager
 ```
 ShipSwift/
 ├── SWPackage/
-│   ├── SWAnimation/          # Animation components (9 files)
-│   ├── SWChart/              # Chart components (8 files)
-│   ├── SWComponent/          # UI components (15 files)
-│   │   ├── Display/          #   Display components (9)
-│   │   ├── Feedback/         #   Feedback components (3)
-│   │   └── Input/            #   Input components (3)
-│   ├── SWModule/             # Multi-file frameworks (6 modules)
-│   │   ├── SWAuth/           #   Authentication (4 files)
-│   │   ├── SWCamera/         #   Camera + face detection (4 files)
-│   │   ├── SWPaywall/        #   Subscription paywall (2 files)
-│   │   ├── SWChat/           #   Chat + voice input (4 files)
-│   │   ├── SWSetting/        #   Settings page (1 file)
-│   │   └── SWTikTokTracking/ #   TikTok attribution (2 files)
-│   └── SWUtil/               # Shared utilities (5 files)
+│   ├── SWAnimation/          # Animation components
+│   ├── SWChart/              # Chart components
+│   ├── SWComponent/          # UI components
+│   │   ├── Display/          #   Display components
+│   │   ├── Feedback/         #   Feedback components
+│   │   └── Input/            #   Input components
+│   ├── SWModule/             # Multi-file frameworks
+│   │   ├── SWAuth/           #   Authentication
+│   │   ├── SWCamera/         #   Camera + face detection
+│   │   ├── SWPaywall/        #   Subscription paywall
+│   │   ├── SWChat/           #   Chat + voice input
+│   │   ├── SWSetting/        #   Settings page
+│   │   └── SWTikTokTracking/ #   TikTok attribution
+│   └── SWUtil/               # Shared utilities
 ├── View/                     # Showcase app views
 └── Component/                # Shared app components
 ```
@@ -137,14 +137,14 @@ SWModule      ← may depend on SWUtil and SWComponent
 
 ## Recipes
 
-ShipSwift provides **41 recipes** (38 free + 3 pro) via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
+ShipSwift provides **free and pro recipes** via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
 
-| Category | Count | Examples |
-|----------|-------|----------|
-| Animation | 9 | Shimmer, Typewriter, Orbiting Logos |
-| Chart | 8 | Line, Bar, Donut, Radar, Heatmap |
-| Component | 15 | Alert, Onboarding, Stepper, FAQ |
-| Module | 9 | Auth, Camera, Chat, Setting, Infra CDK, Subscription\*, TikTok Tracking\*, Export & Share\* |
+| Category | Examples |
+|----------|----------|
+| Animation | Shimmer, Typewriter, Orbiting Logos |
+| Chart | Line, Bar, Donut, Radar, Heatmap |
+| Component | Alert, Onboarding, Stepper, FAQ |
+| Module | Auth, Camera, Chat, Setting, Infra CDK, Subscription\*, TikTok Tracking\*, Export & Share\* |
 
 \* Pro recipes — includes full backend, compliance templates, and pitfall guides. *Coming soon: Push Notifications, Analytics Dashboard.*
 

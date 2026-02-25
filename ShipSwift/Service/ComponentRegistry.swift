@@ -2,7 +2,7 @@
 //  ComponentRegistry.swift
 //  ShipSwift
 //
-//  Maps 39 component IDs to SwiftUI views for chat-inline previews
+//  Maps component IDs to SwiftUI views for chat-inline previews
 //  and full-screen demos. Used by ChatView to render real components
 //  inside chat bubbles when the AI recommends a component.
 //
