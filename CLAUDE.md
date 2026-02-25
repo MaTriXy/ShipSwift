@@ -11,7 +11,7 @@
     - `Display/` — Display components (FloatingLabels, ScrollingFAQ, RotatingQuote, BulletPointText, GradientDivider, Label, OnboardingView, OrderView, RootTabView)
     - `Feedback/` — Feedback components (Alert, Loading, ThinkingIndicator)
     - `Input/` — Input components (TabButton, Stepper, AddSheet)
-  - `SWModule/` — Multi-file frameworks (SWAuth, SWCamera, SWPaywall, SWChat, SWSetting)
+  - `SWModule/` — Multi-file frameworks (SWAuth, SWCamera, SWPaywall, SWChat, SWSetting, SWTikTokTracking)
   - `SWUtil/` — Shared utilities (no dependencies on other SWPackage directories)
 - Showcase app views live under `ShipSwift/View/` (HomeView, ChatView, ComponentView, RootTabView, SettingView)
 - App services live under `ShipSwift/Service/` (ChatService, ComponentRegistry)

@@ -78,13 +78,14 @@ LineChart · BarChart · AreaChart · DonutChart · RingChart · RadarChart · S
 **Feedback:** Alert · Loading · ThinkingIndicator
 **Input:** TabButton · Stepper · AddSheet
 
-### SWModule — 5 Multi-File Frameworks
+### SWModule — 6 Multi-File Frameworks
 
 - **SWAuth** — User authentication (Amplify/Cognito, social login, email/password, phone sign-in with country code picker)
 - **SWCamera** — Camera capture with viewfinder, zoom, photo picker, and face detection with Vision landmark tracking
-- **SWPaywall** — Subscription paywall using StoreKit 2
+- **SWPaywall** — Subscription paywall using StoreKit 2 — *iOS client included free. Full-stack recipe (backend + compliance + pitfalls) → [Pro](https://shipswift.app/#pricing)*
 - **SWChat** — All-in-one chat view with message list, text input, and optional voice recognition (VolcEngine ASR)
 - **SWSetting** — Settings page template with language switch, share, legal links, recommended apps
+- **SWTikTokTracking** — TikTok Events API integration for attribution tracking — *iOS client included free. Full-stack recipe (backend + compliance + pitfalls) → [Pro](https://shipswift.app/#pricing)*
 
 ### SWUtil — Shared Utilities
 
@@ -103,12 +104,13 @@ ShipSwift/
 │   │   ├── Display/          #   Display components (9)
 │   │   ├── Feedback/         #   Feedback components (3)
 │   │   └── Input/            #   Input components (3)
-│   ├── SWModule/             # Multi-file frameworks (5 modules)
+│   ├── SWModule/             # Multi-file frameworks (6 modules)
 │   │   ├── SWAuth/           #   Authentication (4 files)
 │   │   ├── SWCamera/         #   Camera + face detection (4 files)
 │   │   ├── SWPaywall/        #   Subscription paywall (2 files)
 │   │   ├── SWChat/           #   Chat + voice input (4 files)
-│   │   └── SWSetting/        #   Settings page (1 file)
+│   │   ├── SWSetting/        #   Settings page (1 file)
+│   │   └── SWTikTokTracking/ #   TikTok attribution (2 files)
 │   └── SWUtil/               # Shared utilities (5 files)
 ├── View/                     # Showcase app views
 └── Component/                # Shared app components
@@ -135,18 +137,36 @@ SWModule      ← may depend on SWUtil and SWComponent
 
 ## Recipes
 
-ShipSwift provides **38 free recipes** via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
+ShipSwift provides **40 recipes** (38 free + 2 pro) via Skills — each recipe includes complete SwiftUI source code, implementation steps, and best practices. Your AI assistant can retrieve any recipe on demand.
 
 | Category | Count | Examples |
 |----------|-------|----------|
 | Animation | 9 | Shimmer, Typewriter, Orbiting Logos |
 | Chart | 8 | Line, Bar, Donut, Radar, Heatmap |
 | Component | 15 | Alert, Onboarding, Stepper, FAQ |
-| Module | 6 | Auth, Camera, Chat, Setting, Subscription, Infra CDK |
+| Module | 8 | Auth, Camera, Chat, Setting, Infra CDK, Subscription\*, TikTok Tracking\* |
+
+\* Pro recipes — includes full backend, compliance templates, and pitfall guides.
 
 Three tools are available: `listRecipes`, `getRecipe`, `searchRecipes`.
 
 Learn more at [shipswift.app](https://shipswift.app) · Skills repo: [signerlabs/shipswift-skills](https://github.com/signerlabs/shipswift-skills)
+
+---
+
+## Free vs Pro
+
+All iOS client code is open-source under the MIT license. Pro recipes add everything you need to go from prototype to production.
+
+| | Free (Open Source) | Pro Recipe |
+|---|---|---|
+| iOS client code | Full source | Enhanced version |
+| Backend implementation | — | Hono routes, DB schema, webhooks |
+| Integration guides | — | End-to-end setup checklists |
+| Compliance templates | — | Privacy manifest, App Store labels |
+| Known pitfalls | — | 10+ battle-tested tips per recipe |
+
+See [pricing](https://shipswift.app/#pricing) for details.
 
 ---
 
