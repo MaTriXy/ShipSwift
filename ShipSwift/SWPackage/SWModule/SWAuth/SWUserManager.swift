@@ -257,8 +257,10 @@ final class SWUserManager {
                 // If there is an onboarding flow, query backend status here
                 sessionState = .ready(tokens: tokens)
             } catch {
-                swDebugLog("❌ [SWUserManager] Failed to check auth status:", error)
-                sessionState = .signedOut(errorMessage: "Failed to fetch auth info")
+                // Session expired or token invalid, sign out to clean up local Amplify cache
+                swDebugLog("⚠️ [SWUserManager] Session expired, signing out:", error)
+                await authService.signOut()
+                sessionState = .signedOut()
             }
         } else {
             sessionState = .signedOut()
@@ -440,7 +442,10 @@ final class SWUserManager {
 
             return tokens.idToken
         } catch {
-            swDebugLog("❌ [SWUserManager] Failed to get fresh token:", error)
+            // Refresh token expired, sign out to avoid "fake logged-in" state
+            swDebugLog("⚠️ [SWUserManager] Token refresh failed, signing out:", error)
+            await authService.signOut()
+            sessionState = .signedOut()
             return nil
         }
     }
