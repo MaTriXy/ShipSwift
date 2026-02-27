@@ -12,7 +12,7 @@ import AWSCognitoAuthPlugin
 @main
 struct ShipSwiftApp: App {
     @State private var storeManager = SWStoreManager.shared
-    @State private var userManager = SWUserManager(skipAuthCheck: true)
+    @State private var userManager = SWUserManager()
 
     init() {
         configureAmplify()

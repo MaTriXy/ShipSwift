@@ -96,6 +96,7 @@ struct ShipSwiftAuthView: View {
                 }
             }
         }
+        .swAlert()
     }
 
     // MARK: - Header
@@ -489,8 +490,10 @@ struct ShipSwiftAuthView: View {
     // MARK: - Error Handling
 
     private func showError(_ error: Error) {
+        swDebugLog("Auth error: \(error)")
         let message: String
         if let authError = error as? AuthError {
+            swDebugLog("AuthError: \(authError.errorDescription), underlying: \(String(describing: authError.underlyingError))")
             if let cognitoError = authError.underlyingError as? AWSCognitoAuthError {
                 message = cognitoMessage(cognitoError)
             } else {
