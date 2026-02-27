@@ -11,8 +11,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(SWStoreManager.self) private var storeManager
+    @Environment(SWUserManager.self) private var userManager
     @Binding var selectedTab: String
     @Binding var scrollTarget: String?
+
+    @State private var showPaywall = false
 
     // MCP commands for each AI assistant
     @State private var selectedMCP = 0
@@ -72,6 +76,11 @@ struct HomeView: View {
                         Image(systemName: "gearshape.fill")
                     }
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                ProPaywallView()
+                    .environment(storeManager)
+                    .environment(userManager)
             }
         }
     }
@@ -138,9 +147,18 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
 
-            Text("Pro Recipes available at shipswift.app")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            if storeManager.isPro {
+                Label("Pro Recipes unlocked", systemImage: "checkmark.seal.fill")
+                    .font(.caption)
+                    .foregroundStyle(.green)
+            } else {
+                Button {
+                    showPaywall = true
+                } label: {
+                    Label("Upgrade to unlock Pro Recipes", systemImage: "star.fill")
+                        .font(.caption)
+                }
+            }
         }
         .padding(16)
         .background(
@@ -164,8 +182,7 @@ struct HomeView: View {
                 color: .blue,
                 title: "Module",
                 subtitle: "Frameworks",
-                // "Paywall" removed for App Store review — showcase app has no real subscriptions
-                description: "Auth, Camera, Face Camera, Chat, Settings"
+                description: "Auth, Camera, Face Camera, Chat, Paywall, Settings"
             ) { selectedTab = "component"; scrollTarget = "module" }
 
             ModuleCard(
@@ -253,5 +270,7 @@ private struct ModuleCard: View {
 
 #Preview {
     HomeView(selectedTab: .constant("home"), scrollTarget: .constant(nil))
+        .environment(SWStoreManager.shared)
+        .environment(SWUserManager(skipAuthCheck: true))
         .swAlert()
 }

@@ -104,7 +104,13 @@ final class SWStoreManager {
     private(set) var hasActiveSubscription = false
     private(set) var hasLifetimePurchase = false
 
-    var isPro: Bool { hasLifetimePurchase || hasActiveSubscription }
+    /// Whether the server has an active Pro API key for this user
+    var hasServerPro = false
+
+    /// Cached API key from server
+    var apiKey: String?
+
+    var isPro: Bool { hasLifetimePurchase || hasActiveSubscription || hasServerPro }
 
     // MARK: - Init
 
@@ -146,6 +152,60 @@ final class SWStoreManager {
 
         hasLifetimePurchase = lifetime
         hasActiveSubscription = subscription
+    }
+
+    // MARK: - Lifetime Product
+
+    /// The loaded lifetime product (for custom paywall UI)
+    private(set) var lifetimeProduct: Product?
+
+    /// Load the lifetime product from StoreKit
+    func loadLifetimeProduct() async {
+        do {
+            let products = try await Product.products(for: [config.lifetimeProductID])
+            lifetimeProduct = products.first
+        } catch {
+            swDebugLog("Failed to load lifetime product: \(error)")
+        }
+    }
+
+    // MARK: - Server Pro Status
+
+    /// Check server pro status using Cognito ID token
+    func checkServerProStatus(idToken: String) async {
+        do {
+            let service = ShipSwiftAPIService()
+            let status = try await service.getApiKeyStatus(idToken: idToken)
+            hasServerPro = status.hasKey && status.status == "active"
+            if hasServerPro {
+                apiKey = status.apiKey
+            }
+        } catch {
+            swDebugLog("Failed to check server pro status: \(error)")
+        }
+    }
+
+    /// Sync App Store purchase to server and get API key
+    func syncPurchaseToServer(idToken: String) async -> String? {
+        // Get the latest transaction for the lifetime product
+        guard let result = await Transaction.latest(for: config.lifetimeProductID),
+              case .verified = result else {
+            return nil
+        }
+
+        do {
+            let service = ShipSwiftAPIService()
+            let response = try await service.verifyAppStorePurchase(
+                idToken: idToken,
+                signedTransactionInfo: result.jwsRepresentation
+            )
+            apiKey = response.apiKey
+            hasServerPro = true
+            return response.apiKey
+        } catch {
+            swDebugLog("Failed to sync purchase to server: \(error)")
+            return nil
+        }
     }
 
     // MARK: - Free User Limit Checks
