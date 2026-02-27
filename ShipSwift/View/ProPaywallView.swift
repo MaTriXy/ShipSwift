@@ -52,7 +52,7 @@ struct ProPaywallView: View {
             }
             .fullScreenCover(isPresented: $showAuth) {
                 NavigationStack {
-                    SWAuthView()
+                    ShipSwiftAuthView()
                         .environment(userManager)
                 }
             }

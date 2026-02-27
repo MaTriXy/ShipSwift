@@ -70,7 +70,7 @@ struct SettingView: View {
             }
             .fullScreenCover(isPresented: $showAuth) {
                 NavigationStack {
-                    SWAuthView()
+                    ShipSwiftAuthView()
                         .environment(userManager)
                 }
             }
