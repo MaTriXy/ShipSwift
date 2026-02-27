@@ -22,10 +22,10 @@ struct ProPaywallView: View {
     @State private var isSyncing = false
 
     private let features: [(icon: String, text: String)] = [
-        ("cpu.fill", "AI-optimized recipes for Claude, Cursor & Windsurf"),
-        ("checkmark.seal.fill", "Full-stack iOS + AWS backend, battle-tested in production"),
-        ("terminal.fill", "One MCP command — zero downloads, instant access"),
-        ("arrow.triangle.branch", "Lifetime updates & new recipes included"),
+        ("cpu.fill", "AI-optimized recipes for all llm"),
+        ("checkmark.seal.fill", "Full-stack iOS + AWS backend"),
+        ("terminal.fill", "One MCP command — instant access"),
+        ("arrow.triangle.branch", "Lifetime updates"),
     ]
 
     var body: some View {
