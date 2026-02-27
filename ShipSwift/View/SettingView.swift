@@ -20,8 +20,6 @@ struct SettingView: View {
 
     @State private var showPaywall = false
     @State private var showAuth = false
-    @State private var revealedApiKey: String?
-    @State private var isRevealingKey = false
     @State private var isSyncing = false
     @State private var showDeleteConfirmation = false
 
@@ -149,44 +147,26 @@ struct SettingView: View {
 
     private var apiKeyRow: some View {
         Group {
-            if let key = revealedApiKey {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("API Key")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    Text(key)
-                        .font(.system(.caption, design: .monospaced))
-                        .textSelection(.enabled)
-                }
-                .onTapGesture {
-                    UIPasteboard.general.string = key
-                    SWAlertManager.shared.show(.success, message: "Copied to clipboard")
-                }
-            } else if let masked = storeManager.apiKey {
+            if let masked = storeManager.apiKey {
                 Button {
-                    Task { await revealKey() }
+                    Task { await copyKey() }
                 } label: {
                     HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("API Key")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                        Label {
                             Text(masked)
-                                .font(.system(.caption, design: .monospaced))
-                                .foregroundStyle(.primary)
+                                .font(.system(.subheadline, design: .monospaced))
+                                .lineLimit(1)
+                        } icon: {
+                            Image(systemName: "key.fill")
                         }
                         Spacer()
-                        if isRevealingKey {
-                            ProgressView()
-                        } else {
-                            Image(systemName: "eye")
-                                .foregroundStyle(.secondary)
-                        }
+                        Image(systemName: "doc.on.doc")
+                            .foregroundStyle(.secondary)
                     }
                 }
             } else if isSyncing {
                 HStack {
-                    Text("Syncing purchase...")
+                    Label("Syncing purchase...", systemImage: "key.fill")
                     Spacer()
                     ProgressView()
                 }
@@ -204,7 +184,9 @@ struct SettingView: View {
 
     private var accountSection: some View {
         Section("Account") {
-            LabeledContent("Email") {
+            HStack {
+                Label("Email", systemImage: "envelope")
+                Spacer()
                 Text(extractEmail())
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
@@ -340,17 +322,15 @@ struct SettingView: View {
         await storeManager.checkServerProStatus(idToken: idToken)
     }
 
-    private func revealKey() async {
+    private func copyKey() async {
         guard let idToken = await userManager.getFreshIdToken() else { return }
-        isRevealingKey = true
-        defer { isRevealingKey = false }
-
         do {
             let service = ShipSwiftAPIService()
             let key = try await service.revealApiKey(idToken: idToken)
-            revealedApiKey = key
+            UIPasteboard.general.string = key
+            SWAlertManager.shared.show(.success, message: "API Key copied to clipboard")
         } catch {
-            SWAlertManager.shared.show(.error, message: "Failed to reveal API key")
+            SWAlertManager.shared.show(.error, message: "Failed to copy API key")
         }
     }
 

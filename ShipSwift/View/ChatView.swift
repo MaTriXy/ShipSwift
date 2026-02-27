@@ -104,8 +104,7 @@ struct ChatView: View {
                 if messages.count <= 1 && !isWaiting {
                     SWScrollingFAQ(
                         rows: [
-                            // "Paywall" removed for App Store review — showcase app has no real subscriptions
-                            ["Auth Flow", "Camera", "Chat UI", "Settings", "Face Camera"],
+                            ["Paywall", "Auth Flow", "Camera", "Chat UI", "Settings", "Face Camera"],
                             ["Bar Chart", "Line Chart", "Donut Chart", "Heatmap", "Radar Chart", "Area Chart"],
                             ["Shimmer", "Onboarding", "Alert", "Loading", "Stepper", "Typewriter Text"]
                         ]
