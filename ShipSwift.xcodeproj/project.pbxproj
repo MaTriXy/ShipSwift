@@ -38,6 +38,8 @@
 				"SWPackage/SWModule/SWChat/SWVolcEngineASRService+iOS.swift" = (ios, );
 				"SWPackage/SWModule/SWSetting/SWSettingView+iOS.swift" = (ios, );
 				"SWPackage/SWModule/SWSetting/SWSettingView+macOS.swift" = (macos, );
+				"SWPackage/SWModule/SWSubjectLifting/SWSubjectLiftingManager+iOS.swift" = (ios, );
+				"SWPackage/SWModule/SWSubjectLifting/SWSubjectLiftingView+iOS.swift" = (ios, );
 				"SWPackage/SWModule/SWTikTokTracking/SWTikTokTrackingManager+iOS.swift" = (ios, );
 				"SWPackage/SWModule/SWTikTokTracking/SWTikTokTrackingView+iOS.swift" = (ios, );
 			};

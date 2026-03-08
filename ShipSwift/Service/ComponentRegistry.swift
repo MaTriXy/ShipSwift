@@ -277,6 +277,31 @@ struct ComponentRegistry {
             presentation: .push
         )
 
+        reg["subject-lifting"] = ComponentEntry(
+            title: "Subject Lifting",
+            icon: "person.crop.rectangle.badge.minus",
+            description: "Background removal using VisionKit — extract the primary subject from any photo",
+            preview: {
+                AnyView(
+                    VStack(spacing: 12) {
+                        Image(systemName: "person.crop.rectangle.badge.minus")
+                            .font(.system(size: 36))
+                            .foregroundStyle(.accent)
+                        Text("Subject Lifting")
+                            .font(.headline)
+                        Text("Extract subject with background removed via VisionKit")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                )
+            },
+            fullView: { AnyView(ComponentDemoViews.subjectLiftingDemo()) },
+            presentation: .fullScreenCover
+        )
+
         // -- Animation (9) --
 
         reg["before-after-slider"] = ComponentEntry(
@@ -1161,6 +1186,17 @@ enum ComponentDemoViews {
     static func tiktokTrackingDemo() -> some View {
         #if os(iOS)
         SWTikTokTrackingView()
+        #else
+        EmptyView()
+        #endif
+    }
+
+    @ViewBuilder
+    static func subjectLiftingDemo() -> some View {
+        #if os(iOS)
+        NavigationStack {
+            SWSubjectLiftingView()
+        }
         #else
         EmptyView()
         #endif

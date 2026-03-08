@@ -11,7 +11,7 @@
     - `Display/` — Display components (FloatingLabels, ScrollingFAQ, RotatingQuote, BulletPointText, GradientDivider, Label, OnboardingView, OrderView, RootTabView)
     - `Feedback/` — Feedback components (Alert, Loading, ThinkingIndicator)
     - `Input/` — Input components (TabButton, Stepper, AddSheet)
-  - `SWModule/` — Multi-file frameworks (SWAuth, SWCamera, SWPaywall, SWChat, SWSetting, SWTikTokTracking)
+  - `SWModule/` — Multi-file frameworks (SWAuth, SWCamera, SWPaywall, SWChat, SWSetting, SWSubjectLifting, SWTikTokTracking)
   - `SWUtil/` — Shared utilities (no dependencies on other SWPackage directories)
 - Showcase app views live under `ShipSwift/View/` (HomeView, ChatView, ComponentView, RootTabView, SettingView)
 - App services live under `ShipSwift/Service/` (ChatService, ComponentRegistry)
@@ -21,6 +21,8 @@
 - All type names use the `SW` prefix: `SWAlertManager`, `SWStoreManager`, `SWCameraView`
 - View modifier methods use `.sw` lowercase prefix: `.swAlert()`, `.swPageLoading()`, `.swPrimary`
 - File names match their primary type: `SWAlert.swift` contains `SWAlertManager`
+- **Platform suffix rule**: iOS-only files use `+iOS` suffix (e.g. `SWCameraManager+iOS.swift`), macOS-only files use `+macOS` suffix. Cross-platform files have no suffix
+- **Xcode Build Phases reminder**: This project supports both iOS and macOS. When adding a `+iOS` or `+macOS` file, remind the user to set the platform filter in Xcode → Build Phases → Compile Sources (change "Always Used" to "iOS" or "macOS"). Do NOT use `#if os(iOS)` / `#if os(macOS)` as a substitute
 
 ## Dependency Rules
 - `SWUtil` has zero dependencies on other SWPackage directories

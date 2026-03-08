@@ -263,6 +263,20 @@ struct ComponentView: View {
             }
             #endif
 
+            // Subject Lifting demo — iOS only
+            #if os(iOS)
+            NavigationLink {
+                SWSubjectLiftingView()
+                    .hideTabBar()
+            } label: {
+                ListItem(
+                    title: "Subject Lifting",
+                    icon: "person.and.background.dotted",
+                    description: "Background removal using VisionKit ImageAnalyzer. Capture or pick a photo to extract the primary subject."
+                )
+            }
+            #endif
+
             // Settings module
             NavigationLink {
                 SWSettingView(isDemo: true)
