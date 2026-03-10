@@ -946,6 +946,63 @@ struct ComponentRegistry {
             presentation: .sheet
         )
 
+        reg["markdown-text"] = ComponentEntry(
+            title: "Markdown Text",
+            icon: "text.badge.checkmark",
+            description: "Custom Markdown renderer for headings, bold/italic, code blocks, lists, and dividers",
+            preview: {
+                AnyView(
+                    SWMarkdownText("""
+                    ## Quick Demo
+                    A paragraph with **bold** and *italic*.
+
+                    - Bullet one
+                    - Bullet two
+
+                    ```swift
+                    print("Hello!")
+                    ```
+                    """)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                )
+            },
+            fullView: {
+                AnyView(
+                    ScrollView {
+                        SWMarkdownText("""
+                        # Heading 1
+                        ## Heading 2
+                        ### Heading 3
+
+                        This is a paragraph with **bold** and *italic* text.
+
+                        Here is `inline code` in a sentence.
+
+                        ```swift
+                        func greet() {
+                            print("Hello, world!")
+                        }
+                        ```
+
+                        - First item
+                        - Second item with **bold**
+                        - Third item
+
+                        1. Ordered item one
+                        2. Ordered item two
+
+                        ---
+
+                        Another paragraph after the divider.
+                        """)
+                        .padding()
+                    }
+                )
+            },
+            presentation: .push
+        )
+
         // -- Feedback (3) --
 
         reg["alert"] = ComponentEntry(

@@ -1127,6 +1127,45 @@ struct ComponentView: View {
                     description: "TabView template with selected/unselected icons and haptic feedback."
                 )
             }
+
+            // Markdown Text — renders common LLM Markdown output
+            NavigationLink {
+                ScrollView {
+                    SWMarkdownText("""
+                    # Heading 1
+                    ## Heading 2
+                    ### Heading 3
+
+                    This is a paragraph with **bold** and *italic* text.
+
+                    Here is `inline code` in a sentence.
+
+                    ```swift
+                    func greet() {
+                        print("Hello, world!")
+                    }
+                    ```
+
+                    - First item
+                    - Second item with **bold**
+                    - Third item
+
+                    1. Ordered item one
+                    2. Ordered item two
+
+                    ---
+
+                    Another paragraph after the divider.
+                    """)
+                    .padding()
+                }
+            } label: {
+                ListItem(
+                    title: "Markdown Text",
+                    icon: "text.badge.checkmark",
+                    description: "Custom Markdown renderer supporting headings, bold/italic, code blocks, lists, and dividers — ideal for LLM output."
+                )
+            }
         } header: {
             #if os(iOS)
             Text("Display")

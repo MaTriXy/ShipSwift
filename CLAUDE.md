@@ -8,7 +8,7 @@
   - `SWAnimation/` — Self-contained animation components (each works independently, may depend on SWUtil only)
   - `SWChart/` — Self-contained chart components (each works independently, may depend on SWUtil only)
   - `SWComponent/` — Self-contained UI components organized by category:
-    - `Display/` — Display components (FloatingLabels, ScrollingFAQ, RotatingQuote, BulletPointText, GradientDivider, Label, OnboardingView, OrderView, RootTabView)
+    - `Display/` — Display components (FloatingLabels, MarkdownText, ScrollingFAQ, RotatingQuote, BulletPointText, GradientDivider, Label, OnboardingView, OrderView, RootTabView)
     - `Feedback/` — Feedback components (Alert, Loading, ThinkingIndicator)
     - `Input/` — Input components (TabButton, Stepper, AddSheet)
   - `SWModule/` — Multi-file frameworks (SWAuth, SWCamera, SWPaywall, SWChat, SWSetting, SWSubjectLifting, SWTikTokTracking)
