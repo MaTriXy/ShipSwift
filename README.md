@@ -6,6 +6,8 @@
 
 **AI-native SwiftUI component library — production-ready code that LLMs can use to build real apps.**
 
+[![Website](https://img.shields.io/badge/Website-shipswift.app-blue.svg)](https://www.shipswift.app/)
+[![App Store](https://img.shields.io/badge/App_Store-Demo_App-black.svg)](https://apps.apple.com/us/app/shipswift-mcp-codebase/id6759209764)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-5.0+-F05138.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-18.0+-000000.svg)](https://developer.apple.com/ios/)
@@ -14,6 +16,14 @@
 [Quick Start](#quick-start) · [Components](#components) · [Directory Structure](#directory-structure) · [Recipes](#recipes) · [Contributing](#contributing)
 
 </div>
+
+---
+
+## What is ShipSwift?
+
+One command gives your AI everything it needs — production-ready SwiftUI components, full-stack recipes, and the context to build real apps without guessing. Check more [MCP recipes](https://www.shipswift.app/).
+
+Download the [Showcase App](https://apps.apple.com/us/app/shipswift-mcp-codebase/id6759209764) to preview every component on your device.
 
 ---
 
@@ -213,11 +223,11 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=signerlabs%2FShipSwift&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=signerlabs%2FShipSwift&type=timeline&legend=bottom-right">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=timeline&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=timeline&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=signerlabs/ShipSwift&type=timeline&legend=bottom-right" />
  </picture>
 </a>
 
